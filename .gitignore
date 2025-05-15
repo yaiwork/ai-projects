@@ -12,7 +12,7 @@ venv/
 uploads/
 *.pdf
 *.docx
-*.txt
+
 
 # VSCode or PyCharm
 .vscode/
