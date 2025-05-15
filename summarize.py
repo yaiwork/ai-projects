@@ -1,5 +1,3 @@
-# summarize.py
-
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -7,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def summarize_text(text, model="gpt-3.5-turbo"):
+def summarize_text(text, model="gpt-4"): # gpt-3.5-turbo
     response = client.chat.completions.create(
         model=model,
         messages=[
@@ -19,7 +17,7 @@ def summarize_text(text, model="gpt-3.5-turbo"):
     return response.choices[0].message.content.strip()
 
 
-def chat_with_summary(summary, user_message, chat_history=None, model="gpt-3.5-turbo"):
+def chat_with_summary(summary, user_message, chat_history=None, model="gpt-4"): #gpt-3.5-turbo
     messages = [{"role": "system", "content": "You are a helpful assistant answering follow-up questions about a text summary."}]
     messages.append({"role": "assistant", "content": f"The summary of the text is:\n\n{summary}"})
 
