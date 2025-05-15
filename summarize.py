@@ -28,7 +28,7 @@ def chat_with_summary(summary, user_message, chat_history=None, model="gpt-4"): 
 
     messages.append({"role": "user", "content": user_message})
 
-    response = client.chat.completions.create(
+    response = openai.chat.completions.create( # client
         model=model,
         messages=messages,
         max_tokens=300
